@@ -14,7 +14,7 @@
     ],
     "require": {
         "yiisoft/yii2": "~2.0.6",
-        "ktaris/cfdi": "dev-master",
+        "ktaris/yii2'cfdi": "dev-master",
         "ktaris/lector-cfdi": "dev-master"
     },
     "require-dev": {
