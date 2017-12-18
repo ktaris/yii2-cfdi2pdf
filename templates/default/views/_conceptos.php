@@ -1,4 +1,4 @@
-<table>
+<table class="conceptos">
     <thead>
         <tr>
             <th>No Identificación</th>
@@ -13,6 +13,7 @@
     <tbody>
         <?php foreach ($Conceptos as $i => $concepto) {
             echo $this->render('_concepto', [
+                'i' => $i,
                 'concepto' => $concepto,
             ]);
         } ?>

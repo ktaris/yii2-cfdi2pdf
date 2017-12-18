@@ -1,0 +1,22 @@
+body {
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+}
+
+.text-right {
+    text-align: right;
+}
+
+table.conceptos tbody tr.concepto td {
+    vertical-align: top;
+    border-top: 1px solid #ccc;
+}
+
+table.conceptos tbody tr.no-primero td {
+    padding-top: 8px;
+}

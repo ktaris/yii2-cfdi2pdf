@@ -25,4 +25,6 @@
     </tbody>
 </table>
 
-<?= $this->render('_conceptos', ['Conceptos' => $CFDI->Conceptos]); ?>
+<?= $this->render('_conceptos', ['Conceptos' => $CFDI->Conceptos]) ?>
+
+<?= $this->render('_tfd', ['CFDI' => $CFDI]) ?>

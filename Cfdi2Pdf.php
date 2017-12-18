@@ -32,6 +32,7 @@ class Cfdi2Pdf
             'orientation' => Pdf::ORIENT_PORTRAIT,
             'destination' => $this->destino,
             'content' => $contenido,
+            'cssFile' => $this->obtenerArchivoCss(),
             'methods' => [
                 'SetHeader'=>[''],
                 'SetFooter'=>[''],
@@ -58,5 +59,16 @@ class Cfdi2Pdf
         ]);
 
         return $content;
+    }
+
+    protected function obtenerArchivoCss()
+    {
+        $archivoCss = '@vendor/ktaris/yii2-cfdi2pdf/templates/'.$this->plantilla.'/assets/estilo.css';
+
+        if (file_exists(Yii::getAlias($archivoCss))) {
+            return $archivoCss;
+        }
+
+        return '@vendor/kartik-v/yii2-mpdf/assets/kv-mpdf-bootstrap.min.css';
     }
 }
