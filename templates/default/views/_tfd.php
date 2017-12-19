@@ -13,26 +13,42 @@ if (!empty($CFDI->TimbreFiscalDigital) && !empty($CFDI->TimbreFiscalDigital->Ver
     <tbody>
         <tr>
             <td rowspan="4">
-                <barcode disableborder="1" code="<?= CfdiHelper::textoQr($CFDI) ?>" type="QR" class="barcode" size="1.8" error="M" />
+                <barcode disableborder="1" code="<?= CfdiHelper::textoQr($CFDI) ?>" type="QR" class="barcode" size="1.75" error="M" />
             </td>
-            <th>
+            <th class="b-border">
                 Sello del CFDI
             </th>
-        </tr>
-        <tr>
-            <td>
-                <code><?= CfdiHelper::trimmer($CFDI->Sello, 100) ?></code>
-            </td>
-        </tr>
-        <tr>
-            <th>
+            <th class="b-border">
                 Sello del SAT
             </th>
         </tr>
         <tr>
             <td>
+                <code><?= CfdiHelper::trimmer($CFDI->Sello, 50) ?></code>
+            </td>
+            <td class="bordered">
+                <code><?= CfdiHelper::trimmer($tfd->SelloSAT, 50) ?></code>
+            </td>
+        </tr>
+        <tr>
+            <th class="t-border b-border" colspan="2">
+                Cadena Original
+            </th>
+        </tr>
+        <tr>
+            <td class="bordered" colspan="2">
                 <code><?= CfdiHelper::trimmer($tfd->SelloSAT, 100) ?></code>
             </td>
+        </tr>
+    </tbody>
+</table>
+<table>
+    <tbody>
+        <tr>
+            <th class="text-right">Fecha Timbrado</th>
+            <td><?= $CFDI->TimbreFiscalDigital->FechaTimbrado ?></td>
+            <th class="text-right">No. Certificado SAT</th>
+            <td><?= $CFDI->TimbreFiscalDigital->NoCertificadoSAT ?></td>
         </tr>
     </tbody>
 </table>

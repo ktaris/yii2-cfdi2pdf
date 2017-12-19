@@ -10,6 +10,7 @@ namespace ktaris\cfdi2pdf;
 
 use Yii;
 use kartik\mpdf\Pdf;
+use ktaris\numeroletra\NumeroALetra;
 
 class CfdiHelper
 {
@@ -62,8 +63,21 @@ class CfdiHelper
      */
     public static function numeroALetra($numero, $params = [])
     {
-        $numalet= new CNumeroaLetra;
+        $numalet= new NumeroALetra;
         $numalet->setNumero($numero);
+
+        if (isset($params['prefijo'])) {
+            $numalet->setPrefijo($params['prefijo']);
+        }
+        if (isset($params['sufijo'])) {
+            $numalet->setSufijo($params['sufijo']);
+        }
+        if (isset($params['moneda'])) {
+            if (empty($params['moneda'])) {
+                $params['moneda'] = '<strong>MXN</strong>';
+            }
+            $numalet->setMoneda($params['moneda']);
+        }
 
         return $numalet->letra();
     }

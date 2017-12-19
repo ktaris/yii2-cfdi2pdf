@@ -3,9 +3,9 @@ $clase = ($i === 0) ? 'primero' : 'no-primero';
 ?>
 
 <tr class="concepto <?= $clase ?>">
+    <td><?= $concepto->ClaveProdServ ?></td>
     <td><?= $concepto->NoIdentificacion ?></td>
     <td><?= $concepto->Descripcion ?></td>
-    <td><?= $concepto->ClaveProdServ ?></td>
     <td><?= $concepto->ClaveUnidad ?></td>
     <td class="text-right"><?= $concepto->Cantidad ?></td>
     <td class="text-right"><?= $concepto->ValorUnitario ?></td>

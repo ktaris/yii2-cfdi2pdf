@@ -2,7 +2,8 @@
 
 body {
     font-size: 13px;
-    font-family: sans-serif, serif;
+    font-family: 'FreeSans', sans-serif;
+    color: #222;
 }
 
 table {
@@ -12,12 +13,20 @@ table {
     margin: auto;
 }
 
+strong, th {
+    color: #111;
+}
+
 .text-center {
     text-align: center;
 }
 
 .text-right {
     text-align: right;
+}
+
+div.header {
+    text-transform: uppercase;
 }
 
 div.titulo {
@@ -46,6 +55,32 @@ div.footer table {
     font-weight: bold;
 }
 
+.r-border {
+    border-right: 1px solid #ff7f50;
+}
+
+.b-border {
+    border-bottom: 1px solid #ff7f50;
+}
+
+.t-border {
+    border-top: 1px solid #ff7f50;
+}
+
+/***********************************************
+ *** Emisor y Receptor *************************
+ ***********************************************/
+table .fixed-width-left {
+    width: 28mm;
+}
+
+table .rfc {
+    width: 36mm;
+}
+
+table .nombre {
+    width: 20mm;
+}
 
 /***********************************************
  *** Conceptos *********************************
@@ -62,6 +97,11 @@ table.conceptos tbody tr.no-primero td {
 table .traslados td,
 table .retenciones td {
     font-size: 10px;
+}
+
+table.conceptos tr.resumen th,
+table.conceptos tr.resumen td {
+    border-top: 1px solid #ff7f50;
 }
 
 /***********************************************
