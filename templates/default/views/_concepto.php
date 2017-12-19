@@ -7,9 +7,9 @@ $clase = ($i === 0) ? 'primero' : 'no-primero';
     <td><?= $concepto->Descripcion ?></td>
     <td><?= $concepto->ClaveProdServ ?></td>
     <td><?= $concepto->ClaveUnidad ?></td>
-    <td><?= $concepto->Cantidad ?></td>
-    <td><?= $concepto->ValorUnitario ?></td>
-    <td><?= $concepto->Importe ?></td>
+    <td class="text-right"><?= $concepto->Cantidad ?></td>
+    <td class="text-right"><?= $concepto->ValorUnitario ?></td>
+    <td class="text-right"><?= $concepto->Importe ?></td>
 </tr>
 <?php if ($concepto->tieneImpuestos) : ?>
     <?= $this->render('_impuestos', [
