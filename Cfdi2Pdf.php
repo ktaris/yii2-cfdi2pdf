@@ -24,20 +24,47 @@ class Cfdi2Pdf
     {
         $this->_cfdi = $cfdiObj;
 
-        $contenido = $this->obtenerContenido();
+        $pdf = $this->_crearPdf();
 
+        $contenido = $this->obtenerContenido($pdf);
+
+        $pdf->content = $contenido;
+
+        return $pdf;
+    }
+
+    /**
+     * Función utilizada únicamente para debug.
+     *
+     * @param ktaris\cfdi\CFDI $cfdiObj objeto CFDI a ser representado.
+     *
+     * @return string HTML del PDF.
+     */
+    public function crearHtml($cfdiObj)
+    {
+        $this->_cfdi = $cfdiObj;
+
+        $pdf = $this->_crearPdf();
+
+        return $this->obtenerContenido($pdf);
+    }
+
+    protected function _crearPdf()
+    {
         $pdf = new Pdf([
             'mode' => Pdf::MODE_UTF8,
-            'format' => Pdf::FORMAT_A4,
+            'format' => Pdf::FORMAT_LETTER,
             'orientation' => Pdf::ORIENT_PORTRAIT,
             'destination' => $this->destino,
-            'content' => $contenido,
             'cssFile' => $this->obtenerArchivoCss(),
-            'methods' => [
-                'SetHeader'=>[''],
-                'SetFooter'=>[''],
-            ]
+            'marginTop' => 0,
+            'marginBottom' => 0,
+            'marginLeft' => 0,
+            'marginRight' => 0,
+            'marginFooter' => 0,
         ]);
+
+        $pdf->methods = [];
 
         return $pdf;
     }
@@ -48,19 +75,26 @@ class Cfdi2Pdf
      *
      * @return string HTML para el PDF.
      */
-    protected function obtenerContenido()
+    protected function obtenerContenido($pdf)
     {
         if (empty($this->plantilla)) {
             $this->plantilla = self::PLANTILLA_DEFAULT;
         }
 
         $content = Yii::$app->controller->renderPartial('@vendor/ktaris/yii2-cfdi2pdf/templates/'.$this->plantilla.'/views/template', [
+            'pdf' => $pdf,
             'CFDI' => $this->_cfdi,
         ]);
 
         return $content;
     }
 
+    /**
+     * Lee el archivo de CSS de la plantilla, si contiene alguno, o regresa el
+     * estilo predeterminado de Kartik.
+     *
+     * @return string nombre del archivo css a ser utilizado.
+     */
     protected function obtenerArchivoCss()
     {
         $archivoCss = '@vendor/ktaris/yii2-cfdi2pdf/templates/'.$this->plantilla.'/assets/estilo.css';

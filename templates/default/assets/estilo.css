@@ -1,22 +1,67 @@
+/* 279.4 mm de alto */
+
 body {
-    font-size: 14px;
+    font-size: 13px;
+    font-family: sans-serif, serif;
 }
 
 table {
-    width: 100%;
-    max-width: 100%;
+    width: 96%;
+    max-width: 96%;
     border-collapse: collapse;
+    margin: auto;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .text-right {
     text-align: right;
 }
 
+div.titulo {
+    background: #ff7f50;
+    height: 7mm;
+    line-height: 7mm;
+}
+
+div.titulo p {
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+}
+
+div.footer {
+    background: #ff7f50;
+    width: 100%;
+}
+
+div.footer table {
+    height: 7mm;
+    line-height: 7mm;
+
+    color: #fff;
+    font-weight: bold;
+}
+
+
+/***********************************************
+ *** Conceptos *********************************
+ ***********************************************/
 table.conceptos tbody tr.concepto td {
     vertical-align: top;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #ff7f50;
 }
 
 table.conceptos tbody tr.no-primero td {
     padding-top: 8px;
+}
+
+/***********************************************
+ *** Timbre Fiscal Digital *********************
+ ***********************************************/
+code {
+    font-size: 10px;
 }

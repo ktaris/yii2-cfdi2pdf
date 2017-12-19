@@ -1,3 +1,7 @@
+<div class="titulo">
+    <p>Conceptos</p>
+</div>
+
 <table class="conceptos">
     <thead>
         <tr>
