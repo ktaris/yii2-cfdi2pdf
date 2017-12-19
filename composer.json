@@ -16,7 +16,7 @@
         "yiisoft/yii2": "~2.0.6",
         "ktaris/yii2-cfdi": "dev-master",
         "ktaris/lector-cfdi": "dev-master",
-        "ktaris/numeroaletra": "1.0.1"
+        "ktaris/numeroaletra": "^2.0.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.5"

@@ -52,4 +52,19 @@ class CfdiHelper
 
         return $cadena;
     }
+
+    /**
+     * Recibe un número entero o flotante, y se regresa el número en
+     * letras.
+     * @param  number $numero número a ser convertido.
+     * @param  array  $params parámetros a ser enviados al objeto.
+     * @return string         número en letras.
+     */
+    public static function numeroALetra($numero, $params = [])
+    {
+        $numalet= new CNumeroaLetra;
+        $numalet->setNumero($numero);
+
+        return $numalet->letra();
+    }
 }
