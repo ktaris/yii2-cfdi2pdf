@@ -12,7 +12,7 @@ if (!empty($CFDI->TimbreFiscalDigital) && !empty($CFDI->TimbreFiscalDigital->Ver
 <table>
     <tbody>
         <tr>
-            <td rowspan="4">
+            <td rowspan="4" class="vertical-top padding-top-4">
                 <barcode disableborder="1" code="<?= CfdiHelper::textoQr($CFDI) ?>" type="QR" class="barcode" size="1.75" error="M" />
             </td>
             <th class="b-border">
@@ -37,7 +37,7 @@ if (!empty($CFDI->TimbreFiscalDigital) && !empty($CFDI->TimbreFiscalDigital->Ver
         </tr>
         <tr>
             <td class="bordered" colspan="2">
-                <code><?= CfdiHelper::trimmer($tfd->SelloSAT, 100) ?></code>
+                <code><?= CfdiHelper::trimmer($CFDI->CadenaOriginal, 101) ?></code>
             </td>
         </tr>
     </tbody>

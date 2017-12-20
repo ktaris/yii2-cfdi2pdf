@@ -67,6 +67,14 @@ div.footer table {
     border-top: 1px solid #ff7f50;
 }
 
+.vertical-top {
+    vertical-align: top;
+}
+
+.padding-top-4 {
+    padding-top: 4px;
+}
+
 /***********************************************
  *** Emisor y Receptor *************************
  ***********************************************/

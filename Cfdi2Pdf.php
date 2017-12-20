@@ -20,15 +20,31 @@ class Cfdi2Pdf
 
     protected $_cfdi;
 
-    public function crearPdf($cfdiObj)
+    public function crearPdfParaNavegador($cfdiObj)
     {
         $this->_cfdi = $cfdiObj;
-
+        $this->destino = Pdf::DEST_BROWSER;
         $pdf = $this->_crearPdf();
 
         $contenido = $this->obtenerContenido($pdf);
 
         $pdf->content = $contenido;
+
+        return $pdf;
+    }
+
+    public function crearPdfParaArchivo($cfdiObj, $nombreDeArchivo)
+    {
+        $this->_cfdi = $cfdiObj;
+        $this->destino = Pdf::DEST_FILE;
+        $pdf = $this->_crearPdf();
+
+        $contenido = $this->obtenerContenido($pdf);
+
+        $pdf->content = $contenido;
+        $pdf->filename = $nombreDeArchivo;
+
+        $pdf->render();
 
         return $pdf;
     }
