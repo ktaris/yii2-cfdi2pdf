@@ -38,27 +38,34 @@ use ktaris\cfdi\catalogos\base\MetodoPago;
             <td class="text-right"><?= $CFDI->SubTotal ?></td>
         </tr>
         <?php if ($CFDI->tieneImpuestos) : ?>
+            <?php if ($CFDI->tieneTraslados) : ?>
             <?php foreach ($CFDI->Traslados as $i => $m) : ?>
                 <tr>
                     <th colspan="2" class="text-right">Traslado de <?= Impuesto::descripcion($m->Impuesto) ?></th>
                     <td class="text-right"><?= $m->Importe ?></td>
                 </tr>
             <?php endforeach; ?>
+            <?php endif; ?>
+
+            <?php if ($CFDI->tieneRetenciones) : ?>
             <?php foreach ($CFDI->Retenciones as $i => $m) : ?>
                 <tr>
                     <th colspan="2" class="text-right">Retención de <?= Impuesto::descripcion($m->Impuesto) ?></th>
                     <td class="text-right"><?= $m->Importe ?></td>
                 </tr>
             <?php endforeach; ?>
+            <?php endif; ?>
         <?php endif; ?>
         <tr>
             <td colspan="5">
-                <strong>Forma Pago</strong>
-                <?= $CFDI->FormaPago ?>
-                -
-                <?= FormaPago::descripcion($CFDI->FormaPago) ?>
+                <?php if (!empty($CFDI->FormaPago)) : ?>
+                    <strong>Forma Pago</strong>
+                    <?= $CFDI->FormaPago ?>
+                    -
+                    <?= FormaPago::descripcion($CFDI->FormaPago) ?>
 
-                &nbsp;
+                    &nbsp;
+                <?php endif; ?>
 
                 <strong>Método Pago</strong>
                 <?= $CFDI->MetodoPago ?>
