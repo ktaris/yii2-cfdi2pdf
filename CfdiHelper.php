@@ -33,7 +33,7 @@ class CfdiHelper
 
         // UUID del comprobante.
         $cadena .= 'id=';
-        $cadena .= $cfdi->TimbreFiscalDigital->UUID;
+        $cadena .= $cfdi->Complemento->TimbreFiscalDigital->UUID;
 
         // RFC del emisor.
         $cadena .= '&re=';

@@ -1,8 +1,8 @@
 <?php
 use ktaris\cfdi2pdf\CfdiHelper;
 
-if (!empty($CFDI->TimbreFiscalDigital) && !empty($CFDI->TimbreFiscalDigital->Version)) :
-    $tfd = $CFDI->TimbreFiscalDigital;
+if (!empty($CFDI->Complemento->TimbreFiscalDigital) && !empty($CFDI->Complemento->TimbreFiscalDigital->Version)) :
+    $tfd = $CFDI->Complemento->TimbreFiscalDigital;
 ?>
 
 <div class="titulo">
@@ -46,9 +46,9 @@ if (!empty($CFDI->TimbreFiscalDigital) && !empty($CFDI->TimbreFiscalDigital->Ver
     <tbody>
         <tr>
             <th class="text-right">Fecha Timbrado</th>
-            <td><?= $CFDI->TimbreFiscalDigital->FechaTimbrado ?></td>
+            <td><?= $tfd->FechaTimbrado ?></td>
             <th class="text-right">No. Certificado SAT</th>
-            <td><?= $CFDI->TimbreFiscalDigital->NoCertificadoSAT ?></td>
+            <td><?= $tfd->NoCertificadoSAT ?></td>
         </tr>
     </tbody>
 </table>

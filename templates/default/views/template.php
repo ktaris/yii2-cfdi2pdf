@@ -18,7 +18,7 @@ use ktaris\cfdi\catalogos\base\RegimenFiscal;
         <tbody>
             <tr>
                 <th class="fixed-width-left text-right">UUID</th>
-                <td><?= $CFDI->TimbreFiscalDigital->UUID ?></td>
+                <td><?= $CFDI->Complemento->TimbreFiscalDigital->UUID ?></td>
                 <th class="text-right">No. Certificado</th>
                 <td><?= $CFDI->NoCertificado ?></td>
             </tr>
