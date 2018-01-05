@@ -17,15 +17,22 @@ use ktaris\cfdi\catalogos\base\RegimenFiscal;
     <table>
         <tbody>
             <tr>
-                <th class="fixed-width-left text-right">UUID</th>
+                <th class="fixed-width-left-logo text-right">UUID</th>
                 <td><?= $CFDI->Complemento->TimbreFiscalDigital->UUID ?></td>
-                <th class="text-right">No. Certificado</th>
+                <th class="fixed-width-left-logo-2 text-right">No. Certificado</th>
                 <td><?= $CFDI->NoCertificado ?></td>
+                <td class="logotipo-holder" rowspan="4">
+                    <?php
+                    if (!empty($CFDI->AtributosAdicionales) && !empty($CFDI->AtributosAdicionales->logotipo_url)) {
+                        echo '<img class="logo" src="'.$CFDI->AtributosAdicionales->logotipo_url.'" />';
+                    }
+                    ?>
+                </td>
             </tr>
             <tr>
-                <th class="fixed-width-left text-right">Fecha</th>
+                <th class="fixed-width-left-logo text-right">Fecha</th>
                 <td><?= $CFDI->Fecha ?></td>
-                <th class="text-right">Tipo Comprobante</th>
+                <th class="fixed-width-left-logo-2 text-right">Tipo Comprobante</th>
                 <td>
                     <?= $CFDI->TipoDeComprobante ?>
                     -
@@ -33,14 +40,14 @@ use ktaris\cfdi\catalogos\base\RegimenFiscal;
                 </td>
             </tr>
             <tr>
-                <th class="fixed-width-left text-right">Serie</th>
+                <th class="fixed-width-left-logo text-right">Serie</th>
                 <td><?= $CFDI->Serie ?></td>
-                <th class="text-right">Lugar de Expedición</th>
+                <th class="fixed-width-left-logo-2 text-right">Lugar de Expedición</th>
                 <td><?= $CFDI->LugarExpedicion ?></td>
             </tr>
             <tr>
-                <th class="fixed-width-left text-right">Folio</th>
-                <td colspan="3"><?= $CFDI->Folio ?></td>
+                <th class="fixed-width-left-logo text-right">Folio</th>
+                <td colspan="2"><?= $CFDI->Folio ?></td>
             </tr>
         </tbody>
     </table>
@@ -89,6 +96,8 @@ use ktaris\cfdi\catalogos\base\RegimenFiscal;
         </tbody>
     </table>
 
+    <?= $this->render('_campos_adicionales', ['CFDI' => $CFDI]) ?>
+
     <?= $this->render('_conceptos', ['CFDI' => $CFDI]) ?>
 
     <?= $this->render('_tfd', ['CFDI' => $CFDI]) ?>
@@ -96,8 +105,25 @@ use ktaris\cfdi\catalogos\base\RegimenFiscal;
 </html>
 
 <?php
+if (!empty($CFDI->AtributosAdicionales) && !empty($CFDI->AtributosAdicionales->leyenda)) {
+$leyenda_html = <<<LEYENDA_HTML
+<table class="leyenda-pie">
+    <thead>
+        <tr>
+            <td class="text-center">
+                {$CFDI->AtributosAdicionales->leyenda}
+            </td>
+        </tr>
+    </thead>
+</table>
+LEYENDA_HTML;
+} else {
+    $leyenda_html = '';
+}
+
 $pdf->methods['SetHTMLFooter'] = <<<CFDIFOOTER
     <div class="footer">
+        {$leyenda_html}
         <table>
             <thead>
                 <tr>

@@ -76,10 +76,34 @@ div.footer table {
 }
 
 /***********************************************
+ *** Logotipo **********************************
+ ***********************************************/
+
+.logotipo-holder {
+    width: 50mm;
+    height: 16mm;
+}
+
+.logo {
+    max-width:50mm;
+    max-height:16mm;
+    width: auto;
+    height: auto;
+}
+
+/***********************************************
  *** Emisor y Receptor *************************
  ***********************************************/
 table .fixed-width-left {
     width: 28mm;
+}
+
+table .fixed-width-left-logo {
+    width: 12mm;
+}
+
+table .fixed-width-left-logo-2 {
+    width: 36mm;
 }
 
 table .rfc {
@@ -117,4 +141,17 @@ table.conceptos tr.resumen td {
  ***********************************************/
 code {
     font-size: 10px;
+}
+
+/***********************************************
+ *** Leyenda al pie ****************************
+ ***********************************************/
+table.leyenda-pie {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+table.leyenda-pie td {
+    color: #ff7f50;
+    padding: 0 2%;
 }

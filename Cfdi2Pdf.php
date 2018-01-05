@@ -82,6 +82,18 @@ class Cfdi2Pdf
 
         $pdf->methods = [];
 
+        if (!empty($this->_cfdi->AtributosAdicionales) && $this->_cfdi->AtributosAdicionales->cancelado == 1) {
+            // $pdf->SetWatermarkImage('@vendor/ktaris/yii2-cfdi2pdf/templates/'.$this->plantilla.'/assets/cancelado.png', 0.7, 'F');
+            // $pdf->showWatermarkImage = true;
+            $pdf->methods['SetWatermarkImage'] = [
+                Yii::getAlias('@vendor').'/ktaris/yii2-cfdi2pdf/templates/'.$this->plantilla.'/assets/cancelado.png',
+                // $this->_cfdi->AtributosAdicionales->logotipo_url,
+                0.7,
+                'F'
+            ];
+            $pdf->options['showWatermarkImage'] = true;
+        }
+
         return $pdf;
     }
 
