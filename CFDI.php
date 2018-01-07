@@ -9,7 +9,7 @@
 namespace ktaris\cfdi2pdf;
 
 use yii\helpers\Json;
-use ktaris\lectorcfdi\CFDI as BaseCFDI;
+use ktaris\cfdi\CFDI as BaseCFDI;
 use ktaris\cfdi2pdf\models\CampoAdicional;
 use ktaris\cfdi2pdf\models\AtributosAdicionales;
 

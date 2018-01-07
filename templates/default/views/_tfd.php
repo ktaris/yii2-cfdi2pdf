@@ -32,12 +32,12 @@ if (!empty($CFDI->Complemento->TimbreFiscalDigital) && !empty($CFDI->Complemento
         </tr>
         <tr>
             <th class="t-border b-border" colspan="2">
-                Cadena Original
+                Cadena Original del Timbre Fiscal Digital
             </th>
         </tr>
         <tr>
             <td class="bordered" colspan="2">
-                <code><?= CfdiHelper::trimmer($CFDI->CadenaOriginal, 101) ?></code>
+                <code><?= CfdiHelper::trimmer($tfd->cadenaOriginal, 101) ?></code>
             </td>
         </tr>
     </tbody>
