@@ -10,6 +10,7 @@ namespace ktaris\cfdi2pdf;
 
 use yii\helpers\Json;
 use ktaris\cfdi\CFDI as BaseCFDI;
+use ktaris\cfdi2pdf\models\Domicilio;
 use ktaris\cfdi2pdf\models\CampoAdicional;
 use ktaris\cfdi2pdf\models\AtributosAdicionales;
 
@@ -29,6 +30,8 @@ class CFDI extends BaseCFDI
      * u otra propiedad constante, que es propia de la empresa más no del comprobante.
      */
     public $AtributosAdicionales;
+    public $EmisorExtra;
+    public $ReceptorExtra;
 
     /**
      * Esta función junta la lógica de [leerCamposAdicionalesDesdeJson] y
@@ -48,6 +51,14 @@ class CFDI extends BaseCFDI
 
         if (!empty($dataIn['CamposAdicionales'])) {
             $this->leerCamposAdicionalesDesdeArreglo($dataIn['CamposAdicionales']);
+        }
+
+        if (!empty($dataIn['EmisorExtra'])) {
+            $this->leerEmisorExtraDesdeArreglo($dataIn['EmisorExtra']);
+        }
+
+        if (!empty($dataIn['ReceptorExtra'])) {
+            $this->leerReceptorExtraDesdeArreglo($dataIn['ReceptorExtra']);
         }
     }
 
@@ -126,6 +137,22 @@ class CFDI extends BaseCFDI
         if (!empty($dataIn) && is_array($dataIn)) {
             $this->AtributosAdicionales = new AtributosAdicionales;
             $this->AtributosAdicionales->attributes = $dataIn;
+        }
+    }
+
+    private function leerEmisorExtraDesdeArreglo($dataIn)
+    {
+        if (!empty($dataIn) && is_array($dataIn)) {
+            $this->EmisorExtra = new Domicilio;
+            $this->EmisorExtra->attributes = $dataIn;
+        }
+    }
+
+    private function leerReceptorExtraDesdeArreglo($dataIn)
+    {
+        if (!empty($dataIn) && is_array($dataIn)) {
+            $this->ReceptorExtra = new Domicilio;
+            $this->ReceptorExtra->attributes = $dataIn;
         }
     }
 }
