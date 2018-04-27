@@ -126,6 +126,7 @@ table.conceptos tbody tr.no-primero td {
     padding-top: 8px;
 }
 
+table .descuento td,
 table .traslados td,
 table .retenciones td {
     font-size: 10px;
