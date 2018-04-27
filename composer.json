@@ -6,7 +6,7 @@
         "sat"
     ],
     "type" : "library",
-    "license" : "MIT License",
+    "license" : "MIT",
     "authors" : [{
             "name" : "Carlos Ramos",
             "email" : "carlos@ramoscarlos.com"
