@@ -145,6 +145,18 @@ code {
 }
 
 /***********************************************
+ *** Pagos *************************************
+ ***********************************************/
+table.pago10_doctos_relacionados tbody tr.pago10_docto_relacionado td {
+    vertical-align: top;
+    border-top: 1px solid #ff7f50;
+}
+
+table.pago10_doctos_relacionados tbody tr.no-primero td {
+    padding-top: 8px;
+}
+
+/***********************************************
  *** Leyenda al pie ****************************
  ***********************************************/
 table.leyenda-pie {

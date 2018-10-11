@@ -5,6 +5,7 @@ use ktaris\cfdi\catalogos\base\RegimenFiscal;
 <div class="titulo">
     <p>Emisor</p>
 </div>
+
 <table>
     <tbody>
         <tr>

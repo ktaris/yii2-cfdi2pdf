@@ -60,6 +60,8 @@ use ktaris\cfdi\catalogos\base\TipoDeComprobante;
 
     <?= $this->render('_cce', ['CFDI' => $CFDI]) ?>
 
+    <?= $this->render('_pago10', ['CFDI' => $CFDI]) ?>
+
     <?= $this->render('_tfd', ['CFDI' => $CFDI]) ?>
 </body>
 </html>

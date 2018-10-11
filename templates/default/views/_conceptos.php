@@ -67,10 +67,12 @@ use ktaris\cfdi\catalogos\base\MetodoPago;
                     &nbsp;
                 <?php endif; ?>
 
-                <strong>Método Pago</strong>
-                <?= $CFDI->MetodoPago ?>
-                -
-                <?= MetodoPago::descripcion($CFDI->MetodoPago) ?>
+                <?php if (!empty($CFDI->MetodoPago)) : ?>
+                    <strong>Método Pago</strong>
+                    <?= $CFDI->MetodoPago ?>
+                    -
+                    <?= MetodoPago::descripcion($CFDI->MetodoPago) ?>
+                <?php endif; ?>
             </td>
             <th class="text-right">Total</th>
             <td class="text-right"><?= $CFDI->Total ?></td>
